@@ -5,7 +5,7 @@ Essentially, it will try to estimate the slope and y-intercept of a line
 """
 import random, matplotlib.pyplot as plt
 
-def testCaseGen(slope):
+def testCaseGen(slope, intercept):
     used_ints = set()
     def case():
         nonlocal used_ints
@@ -53,7 +53,7 @@ def train(trials = 1000, step_size = 0.0000001):
     global w
     global b
     y_points = []
-    testCases = testCaseGen(slope)
+    testCases = testCaseGen(slope, intercept)
     for _ in range(trials):
         a_0, y = testCases()
         print("weight:", w, "bias:", b, "input:", a_0, "output:", a_1 := feedFoward(a_0))
